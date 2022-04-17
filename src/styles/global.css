@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 20px auto;
+}
+
+nav .links {
+  display: inline-block;
+  text-align: right;
+}
+
+nav a {
+  display: inline-block;
+  margin-left: 20px;
+  font-weight: 400;
+  padding-bottom: 8px;
+  border-bottom: 3px solid transparent;
+}
+
+nav a:hover {
+  border-color: blue;
+}
+
+.main-image {
+  width: 250px;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--light-border-color);
+  margin-left: 2rem;
+}
