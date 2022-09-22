@@ -5,7 +5,6 @@ import React from 'react';
 import Layout from '../../components/Layout';
 
 export default function BlogPost({ data }) {
-  console.log(data);
   const image = getImage(data.mdx.frontmatter.hero_image);
   return (
     <Layout pageTitle={data.mdx.frontmatter.title}>
