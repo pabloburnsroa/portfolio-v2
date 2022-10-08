@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { GlobalStyles } from '../styles/global';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../styles/theme';
 import styled from 'styled-components';
 import { Navbar, Footer } from '../components';
+import { GlobalStyle, theme } from '../styles';
+import { Social } from '../components';
+import Email from './Email';
 
-const LayoutContent = styled.div`
+const LayoutStyledContent = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -14,16 +15,22 @@ const LayoutContent = styled.div`
 const Layout = ({ children }) => {
   const [open, setOpen] = useState(false);
   return (
-    <>
+    <div id="root" className={open ? 'blur' : ''}>
       <ThemeProvider theme={theme}>
-        <GlobalStyles />
-        <LayoutContent>
+        <GlobalStyle />
+        <LayoutStyledContent>
           <Navbar open={open} setOpen={setOpen} />
-          <main id="content">{children}</main>
-          <Footer />
-        </LayoutContent>
+          <Social />
+          <Email />
+
+          <div id="content">
+            {children}
+
+            <Footer />
+          </div>
+        </LayoutStyledContent>
       </ThemeProvider>
-    </>
+    </div>
   );
 };
 

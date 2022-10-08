@@ -18,8 +18,8 @@ const Hero = () => {
   const four = (
     <>
       <p>
-        My motivation for this site is to showcase what I've learned so far and
-        connect with others interested in software engineering.
+        I'm a self-taught software engineer, with a current focus on building
+        applications using React.
       </p>
     </>
   );

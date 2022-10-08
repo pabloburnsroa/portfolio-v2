@@ -3,45 +3,68 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 const StyledMenu = styled.aside`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background: ${({ theme }) => theme.primaryLight};
-  height: 100vh;
-  text-align: left;
-  padding: 2rem;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  transition: transform 0.3s ease-in-out;
-  transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(-100%)')};
+  /* display: none; */
+  display: none;
 
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
+  @media (max-width: 768px) {
+    ${({ theme }) => theme.mixins.flexCenter}
+    background: ${({ theme }) => theme.primaryLight};
+    height: 100vh;
+    text-align: left;
+    padding: 2rem;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    width: min(75vw, 400px);
+    height: 100vh;
+    visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: ${(props) =>
+      props.open ? 'translateX(0vw)' : 'translateX(100vw)'};
   }
 
-  ol a {
-    font-size: 2rem;
-    text-transform: uppercase;
-    padding: 3px 20px 20px;
-    font-weight: bold;
-    letter-spacing: 0.5rem;
-    color: ${({ theme }) => theme.primaryDark};
-    text-decoration: none;
-    transition: color 0.3s linear;
+  nav {
+    ${({ theme }) => theme.mixins.flexBetween}
+    width: 100%;
+    flex-direction: column;
+    text-align: center;
+  }
 
-    @media (max-width: ${({ theme }) => theme.mobile}) {
-      font-size: 1.5rem;
-      text-align: center;
+  ol {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 100%;
+
+    li {
+      position: relative;
+      margin: 0 auto 20px;
     }
 
-    &:hover {
-      color: ${({ theme }) => theme.primaryHover};
+    a {
+      font-size: 2rem;
+      text-transform: uppercase;
+      padding: 3px 20px 20px;
+      font-weight: bold;
+      letter-spacing: 0.5rem;
+      color: ${({ theme }) => theme.primaryDark};
+      text-decoration: none;
+      transition: color 0.3s linear;
+
+      @media (max-width: ${({ theme }) => theme.mobile}) {
+        font-size: 1.5rem;
+        text-align: center;
+      }
+
+      &:hover {
+        color: ${({ theme }) => theme.primaryHover};
+      }
     }
   }
 `;
-const Menu = ({ open }) => {
+
+const Menu = ({ open, setOpen }) => {
   const navLinks = [
     { name: 'Home', url: '/#' },
     { name: 'About', url: '/#about' },
@@ -60,14 +83,18 @@ const Menu = ({ open }) => {
   );
   return (
     <StyledMenu open={open}>
-      <ol>
-        {navLinks &&
-          navLinks.map(({ url, name }, i) => (
-            <li key={i}>
-              <Link to={url}>{name}</Link>
-            </li>
-          ))}
-      </ol>
+      <nav>
+        <ol>
+          {navLinks &&
+            navLinks.map(({ url, name }, i) => (
+              <li key={i}>
+                <Link to={url} onClick={() => setOpen(false)}>
+                  {name}
+                </Link>
+              </li>
+            ))}
+        </ol>
+      </nav>
     </StyledMenu>
   );
 };

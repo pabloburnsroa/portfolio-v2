@@ -1,10 +1,10 @@
-export { default as About } from './About';
+export { default as About } from './sections/about';
 export { default as Burger } from './Burger';
-export { default as Contact } from './Contact';
-export { default as Featured } from './Featured';
+export { default as Contact } from './sections/contact';
+export { default as Featured } from './sections/featured';
 export { default as Footer } from './Footer';
-export { default as Hero } from './Hero';
-export { default as Jobs } from './Jobs';
+export { default as Hero } from './sections/hero';
+export { default as Jobs } from './sections/jobs';
 export { default as Layout } from './Layout';
 export { default as Menu } from './Menu';
 export { default as Navbar } from './Navbar';
