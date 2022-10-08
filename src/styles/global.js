@@ -97,7 +97,7 @@ h6 {
   margin: 0 0 10px 0;
   font-weight: 600;
   color: var(--lightest-slate);
-  line-height: 1.1;
+  line-height: 1.15;
 }
 
 #root {
