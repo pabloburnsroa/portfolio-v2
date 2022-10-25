@@ -41,6 +41,13 @@ const StyledProjectsSection = styled.section`
     transition: var(--transition);
     padding: 1.25rem 1.75rem;
     margin: 80px auto 0px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--green-tint);
+      outline: none;
+    }
   }
 `;
 

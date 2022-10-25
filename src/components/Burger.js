@@ -23,7 +23,7 @@ const StyledBurger = styled.button`
     width: 2rem;
     height: 0.25rem;
     background: ${({ theme, open }) =>
-      open ? theme.primaryDark : theme.primaryLight};
+      open ? theme.primaryLight : theme.primaryLight};
     border-radius: 10px;
     transition: all 0.15s linear;
 
@@ -45,7 +45,9 @@ const StyledBurger = styled.button`
 `;
 
 const Burger = ({ open, setOpen }) => {
-  const toggleMenu = () => setOpen(!open);
+  const toggleMenu = () => {
+    setOpen(!open);
+  };
   return (
     <StyledBurger open={open} onClick={toggleMenu}>
       <div />

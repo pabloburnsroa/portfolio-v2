@@ -23,6 +23,7 @@ const StyledSocialLinks = styled.div`
     width: 100%;
     margin: 0px auto 10px;
     max-width: 270px;
+    color: var(--light-slate);
   }
   ul {
     display: flex;

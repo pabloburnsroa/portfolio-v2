@@ -6,7 +6,7 @@ const StyledAboutSection = styled.section`
   .inner {
     display: grid;
     grid-template-columns: 3fr 2fr;
-
+    gap: 50px;
     @media (max-width: 768px) {
       display: block;
     }
@@ -23,10 +23,14 @@ const StyledText = styled.div`
     li {
       position: relative;
       padding-left: 20px;
+      font-size: 13px;
+      margin-bottom: 10px;
+
       &:before {
         content: '▹';
         position: absolute;
         left: 0;
+        color: var(--green);
       }
     }
   }

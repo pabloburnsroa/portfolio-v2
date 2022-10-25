@@ -87,6 +87,9 @@ const StyledProject = styled.li`
   .project-title {
     color: var(--lightest-slate);
     font-size: clamp(24px, 5vw, 28px);
+    a {
+      z-index: 2;
+    }
   }
 
   .project-description {
@@ -98,7 +101,7 @@ const StyledProject = styled.li`
     border-radius: var(--border-radius);
     background-color: var(--light-navy);
     color: var(--light-slate);
-    font-size: var(--fz-lg);
+    font-size: 18px;
 
     @media (max-width: 768px) {
       padding: 20px 0px;
@@ -119,6 +122,13 @@ const StyledProject = styled.li`
       color: var(--light-slate);
       font-size: 13px;
       white-space: nowrap;
+
+      @media (max-width: 768px) {
+        margin: 0px 10px 5px 0px;
+      }
+    }
+    @media (max-width: 768px) {
+      margin: 10px 0px;
     }
   }
 

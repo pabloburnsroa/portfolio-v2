@@ -7,7 +7,6 @@ const StyledProject = styled.li`
   cursor: default;
   transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
 
-  
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
@@ -99,8 +98,7 @@ const StyledProject = styled.li`
     margin: 20px 0 0 0;
     list-style: none;
     li {
-      font-family: var(--font-mono);
-      font-size: var(--fz-xxs);
+      font-size: 12px;
       line-height: 1.75;
       &:not(:last-of-type) {
         margin-right: 15px;

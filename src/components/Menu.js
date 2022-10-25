@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import useOnClickOutside from '../hooks/useOnClickOutside';
 
 const StyledMenu = styled.aside`
   /* display: none; */
@@ -8,7 +9,7 @@ const StyledMenu = styled.aside`
 
   @media (max-width: 768px) {
     ${({ theme }) => theme.mixins.flexCenter}
-    background: ${({ theme }) => theme.primaryLight};
+    background: ${({ theme }) => theme.primaryDark};
     height: 100vh;
     text-align: left;
     padding: 2rem;
@@ -40,20 +41,19 @@ const StyledMenu = styled.aside`
     li {
       position: relative;
       margin: 0 auto 20px;
+      font-size: clamp(14px, 4vw, 16px);
     }
 
     a {
-      font-size: 2rem;
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       padding: 3px 20px 20px;
-      font-weight: bold;
-      letter-spacing: 0.5rem;
-      color: ${({ theme }) => theme.primaryDark};
+      /* font-weight: bold; */
+      /* letter-spacing: 0.5rem; */
+      color: ${({ theme }) => theme.primaryLight};
       text-decoration: none;
       transition: color 0.3s linear;
 
       @media (max-width: ${({ theme }) => theme.mobile}) {
-        font-size: 1.5rem;
         text-align: center;
       }
 
@@ -61,6 +61,22 @@ const StyledMenu = styled.aside`
         color: ${({ theme }) => theme.primaryHover};
       }
     }
+  }
+
+  .resume-link {
+    color: var(--green);
+    background-color: transparent;
+    border: 1px solid var(--green);
+    border-radius: var(--border-radius);
+    font-size: var(--fz-sm);
+    font-family: var(--font-mono);
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 18px 50px;
+    margin: 10% auto 0px;
+    width: max-content;
   }
 `;
 
@@ -71,18 +87,11 @@ const Menu = ({ open, setOpen }) => {
     { name: 'Projects', url: '/#projects' },
     { name: 'Blogs', url: '/#blogs' },
   ];
-  const resume = (
-    <a
-      className="resume-button"
-      href="#"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      Resume
-    </a>
-  );
+
+  const wrapperRef = useRef();
+  useOnClickOutside(wrapperRef, () => setOpen(false));
   return (
-    <StyledMenu open={open}>
+    <StyledMenu open={open} ref={wrapperRef} aria-hidden={!open}>
       <nav>
         <ol>
           {navLinks &&
@@ -94,6 +103,9 @@ const Menu = ({ open, setOpen }) => {
               </li>
             ))}
         </ol>
+        <a href="/resume.pdf" class="resume-link">
+          Resume
+        </a>
       </nav>
     </StyledMenu>
   );

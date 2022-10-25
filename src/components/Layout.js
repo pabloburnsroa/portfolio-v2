@@ -15,7 +15,7 @@ const LayoutStyledContent = styled.div`
 const Layout = ({ children }) => {
   const [open, setOpen] = useState(false);
   return (
-    <div id="root" className={open ? 'blur' : ''}>
+    <div id="root">
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <LayoutStyledContent>

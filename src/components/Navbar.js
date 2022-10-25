@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react';
 import { css } from 'styled-components';
 import { Helmet } from 'react-helmet';
 
+import { LogoIcon } from './icons';
+
 const StyledHeader = styled.header`
   ${({ theme }) => theme.mixins.flexBetween};
   position: fixed;
@@ -60,7 +62,29 @@ const StyledNav = styled.nav`
   /* padding: 0px 15px; */
 
   .logo {
-    padding: 15px;
+    /* padding: 15px; */
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+
+    a {
+      color: var(--green);
+      width: 42px;
+      height: 42px;
+      &:hover,
+      &:focus {
+        svg {
+          fill: var(--green-tint);
+        }
+      }
+      svg {
+        fill: none;
+        transition: var(--transition);
+        user-select: none;
+      }
+    }
   }
 
   .menu {
@@ -92,7 +116,7 @@ const StyledNavLinks = styled.div`
       margin: 0 5px;
       position: relative;
       counter-increment: item 1;
-      font-size: var(--fz-xs);
+      font-size: 13px;
       a {
         padding: 10px;
         &:before {
@@ -106,9 +130,17 @@ const StyledNavLinks = styled.div`
     }
   }
   .resume-button {
-    /* ${({ theme }) => theme.mixins.smallButton}; */
+    color: var(--green);
+    background-color: transparent;
+    border: 1px solid var(--green);
+    border-radius: var(--border-radius);
+    padding: 0.75rem 1rem;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    transition: var(--transition);
     margin-left: 15px;
-    font-size: var(--fz-xs);
+    font-size: 13px;
   }
 `;
 
@@ -155,13 +187,22 @@ const Navbar = ({ open, setOpen }) => {
       Resume
     </a>
   );
+
+  const logo = (
+    <div className="logo" tabIndex="-1">
+      <a href="/" aria-label="home">
+        <LogoIcon />
+      </a>
+    </div>
+  );
+
   return (
     <StyledHeader
       scrollDirection={scrollDirection}
       scrolledToTop={scrolledToTop}
     >
       <StyledNav>
-        <div className="logo">LOGO</div>
+        {logo}
         <StyledNavLinks>
           <ol>
             {navLinks &&

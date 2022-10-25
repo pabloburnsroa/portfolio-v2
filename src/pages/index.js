@@ -13,6 +13,10 @@ const StyledMainContainer = styled.main`
   counter-reset: section;
   padding: 0px 150px;
 
+  @media (max-width: 1024px) {
+    padding: 0px 100px;
+  }
+
   @media (max-width: 768px) {
     padding: 0px 50px;
   }
