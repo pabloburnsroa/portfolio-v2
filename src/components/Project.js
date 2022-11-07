@@ -108,8 +108,8 @@ const StyledProject = styled.li`
 `;
 
 const Project = ({ project }) => {
-  const { frontmatter, excerpt } = project;
-  const { github, external, date, stack, title } = frontmatter;
+  const { frontmatter } = project;
+  const { github, external, date, stack, title, description } = frontmatter;
   return (
     <StyledProject>
       <div className="project-inner">
@@ -150,7 +150,7 @@ const Project = ({ project }) => {
           </h3>
 
           <div className="project-description">
-            <p>{excerpt}</p>
+            <p>{description}</p>
           </div>
         </header>
 

@@ -63,8 +63,8 @@ const Projects = () => {
               external
               github
               stack
+              description
             }
-            excerpt
           }
         }
       }

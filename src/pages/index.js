@@ -4,7 +4,7 @@ import Layout from '../components/Layout';
 import Hero from '../components/sections/hero';
 import About from '../components/sections/about';
 import Featured from '../components/sections/featured';
-import Jobs from '../components/sections/jobs';
+// import Jobs from '../components/sections/jobs';
 import Contact from '../components/sections/contact';
 import styled from 'styled-components';
 import Projects from '../components/sections/projects';
